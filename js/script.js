@@ -8,7 +8,7 @@ function girar() {
     calcular(rand);
     giros++;
     var sonido = document.querySelector("#audio");
-    sonido.setAttribute("src", "ruleta_digital/ruleta/sonido/ruleta.mp3");
+    sonido.setAttribute("src", "../sonido/ruleta.mp3");
     document.querySelector(".contador").innerHTML = "TURNOS: " + giros;
   } else {
     Swal.fire({
