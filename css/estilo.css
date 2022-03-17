@@ -3,6 +3,9 @@
   text-align: center;
 }
 
+#imgSorpresa {
+}
+
 body {
   background-image: url("../image/fondo2.png");
   background-size: 70px 70px;
@@ -34,4 +37,10 @@ img {
   font-size: 15px;
   padding-top: 25px;
   padding: 40px;
+}
+#imgSorpresa {
+  float: left;
+  margin-left: 10px;
+  width: 100px;
+  height: 75px;
 }
