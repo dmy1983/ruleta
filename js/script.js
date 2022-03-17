@@ -14,15 +14,28 @@ function girar() {
     Swal.fire({
       icon: "success",
       title: "VUELVA PRONTO EL JUEGO TERMINO!!",
+      input: "email",
+      inputlabel: "Email",
+      inputPlaceholder: "Ingrese su email",
+      confirmButtonText: "Enviar",
+      showCancelButton: true,
+      cancelButtonText: "Cancelar",
+      cancelButtonColor: "#d33",
       confirmButtonColor: "#3085d6",
-      confirmButtonText: "Aceptar",
       allowOutsideClick: false,
-    }).then((result) => {
-      if (result.value == true) {
-        giros = 0;
-        document.querySelector(".elije").innerHTML = "TU PREMIO ES: ";
-        document.querySelector(".contador").innerHTML = "TURNOS: " + giros;
-      }
+      showLoaderOnConfirm: true,
+      preConfirm: (email) => {
+        return fetch("https://formspree.io/f/xwkyqroe", {
+          method: "POST",
+          body: JSON.stringify({ email }),
+          headers: { "Content-Type": "application/json" },
+        }).then(() => {
+          Swal.fire("Gracias por participar", "", "success");
+          giros = 0;
+          document.querySelector(".elije").innerHTML = "TU PREMIO ES: ";
+          document.querySelector(".contador").innerHTML = "TURNOS: " + giros;
+        });
+      },
     });
   }
 
